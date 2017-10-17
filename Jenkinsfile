@@ -12,14 +12,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'cd webdemo && ./gradlew build'
+                sh 'cd webdemo && ./gradlew build -x test'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'cd webdemo && ./gradlew build || true'
+                sh 'cd webdemo && ./gradlew test || true'
               //  junit '**/target/*.xml'
             }
         }
@@ -36,7 +36,7 @@ pipeline {
                    sh "${sonarqubeScannerHome}/bin/sonar-scanner"
                }
             
-               timeout(10) { 
+               timeout(1) { 
                    //利用sonar webhook功能通知pipeline代码检测结果，未通过质量阈，pipeline将会fail
                    def qg = waitForQualityGate() 
                        if (qg.status != 'OK') {
