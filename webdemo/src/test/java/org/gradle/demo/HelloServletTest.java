@@ -47,15 +47,15 @@ public class HelloServletTest {
         verify(requestDispatcher).forward(request,response);
     }
 
-//    @Test
-//    public void doPostWithName() throws Exception {
-//        when(request.getParameter("name")).thenReturn("Dolly");
-//        when(request.getRequestDispatcher("response.jsp"))
-//                .thenReturn(requestDispatcher);
-//
-//        new HelloServlet().doPost(request, response);
-//
-//        verify(request).setAttribute("user", "Dolly");
-//        verify(requestDispatcher).forward(request,response);
-//    }
+    @Test
+    public void doPostWithName() throws Exception {
+        when(request.getParameter("name")).thenReturn("Dolly");
+        when(request.getRequestDispatcher("response.jsp"))
+                .thenReturn(requestDispatcher);
+
+        new HelloServlet().doPost(request, response);
+
+        verify(request).setAttribute("user", "Dolly");
+        verify(requestDispatcher).forward(request,response);
+    }
 }
