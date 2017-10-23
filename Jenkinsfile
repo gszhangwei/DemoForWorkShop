@@ -56,7 +56,7 @@ pipeline {
                     cd /var/jenkins_home/workspace/Pipeline/webdemo/build/libs
                     scp webdemo.war root@172.17.0.3:/opt/tomcat/webapps
                     ssh root@172.17.0.3 '
-                        cd root@172.17.0.3:/opt/tomcat/bin
+                        cd /opt/tomcat/bin
                         ./startup.sh
                     '
                 """ 
