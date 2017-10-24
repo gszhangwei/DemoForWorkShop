@@ -48,21 +48,21 @@ pipeline {
             }
         }
         
-   //   stage('Deploy') {
-         //   steps{
-            //     echo 'Deploying..' 
-             //   sh """
-              //      set -e
-               //     ssh root@172.17.0.3 'bash -s' < checktomcatstatus.sh
-               //     cd /var/jenkins_home/workspace/Pipeline/webdemo/build/libs
-                 //   scp webdemo.war root@172.17.0.3:/opt/tomcat/webapps
-                 //   ssh root@172.17.0.3 '
-                  //      cd /opt/tomcat/bin
-                 //       ./startup.sh
-                //    '
-             //   """ 
-          //  }
-     //   } 
+     stage('Deploy') {
+            steps{
+                 echo 'Deploying..' 
+                sh """
+                    set -e
+                    ssh root@172.17.0.3 'bash -s' < checktomcatstatus.sh
+                    cd /var/jenkins_home/workspace/PipelineForWorkShop/webdemo/build/libs
+                    scp webdemo.war root@172.17.0.3:/opt/tomcat/webapps
+                    ssh root@172.17.0.3 '
+                        cd /opt/tomcat/bin
+                        ./startup.sh
+                    '
+                """ 
+            }
+        } 
         
     }
 }
