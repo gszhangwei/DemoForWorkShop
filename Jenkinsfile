@@ -16,7 +16,8 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        /*
+       stage('Test') {
             steps {
                 echo 'Testing..'
                 sh 'cd webdemo && ./gradlew test || true'
@@ -61,7 +62,7 @@ pipeline {
                     '
                 """ 
             }
-        }
-        
+        } 
+        */
     }
 }
