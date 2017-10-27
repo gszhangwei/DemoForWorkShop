@@ -53,9 +53,9 @@ pipeline {
                  echo 'Deploying..' 
                 sh """
                     set -e
-                    ssh os_user@172.17.0.2 'bash -s' < checktomcatstatus.sh
+                    ssh tomcat@172.17.0.2 'bash -s' < checktomcatstatus.sh
                     cd /var/jenkins_home/workspace/Pipeline/webdemo/build/libs
-                    scp webdemo.war os_user@172.17.0.2:/opt/tomcat/webapps
+                    scp webdemo.war tomcat@172.17.0.2:/opt/tomcat/webapps
                     ssh os_user@172.17.0.2 '
                         cd /opt/tomcat/bin
                         ./startup.sh
