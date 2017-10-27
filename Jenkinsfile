@@ -54,7 +54,7 @@ pipeline {
                 sh """
                     set -e
                     ssh os_user@172.17.0.2 'bash -s' < checktomcatstatus.sh
-                    cd /var/jenkins_home/workspace/PipelineForWorkShop/webdemo/build/libs
+                    cd /var/jenkins_home/workspace/Pipeline/webdemo/build/libs
                     scp webdemo.war os_user@172.17.0.2:/opt/tomcat/webapps
                     ssh os_user@172.17.0.2 '
                         cd /opt/tomcat/bin
